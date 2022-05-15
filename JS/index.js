@@ -1,4 +1,4 @@
-function handleSignupFormSubmit(e) {
+/*function handleSignupFormSubmit(e) {
     // prevent default browser behaviour
     e.preventDefault();
   
@@ -13,16 +13,6 @@ function validatePassword(password, minlength) {
   
     if (password.length < minlength) {
       return `Please enter a password that's at least ${minlength} characters long`;
-    }
-  
-    const hasCapitalLetter = /[A-Z]/g;
-    if (!hasCapitalLetter.test(password)) {
-      return 'Please use at least one capital letter.';
-    }
-  
-    const hasNumber = /\d/g;
-    if (!hasNumber.test(password)) {
-      return 'Please use at least one number.';
     }
   
     return '';
@@ -51,18 +41,111 @@ function validatePassword(password, minlength) {
   
     if (!emailErrorMessage) {
       // select the email form field message element
-      const emailErrorMessageElement = document.querySelector('.email .form-field__messages');
+      const emailErrorMessageElement = document.querySelector('#useremail .form-field__messages');
       // show email error message to user
       emailErrorMessageElement.innerText = emailErrorMessage;
     }
   
     if (passowrdErrorMessage) {
       // select the email form field message element
-      const passwordErrorMessageElement = document.querySelector('.password .form-field__messages');
+      const passwordErrorMessageElement = document.querySelector('#password .form-field__messages');
       // show password error message to user
       passwordErrorMessageElement.innerText = passowrdErrorMessage;
     }
+  }*/
+
+
+
+
+  const checkUsername = () => {
+
+    let valid = false;
+    const min = 3,
+        max = 25;
+    const username = usernameEl.value.trim();
+
+    if (!isRequired(username)) {
+        showError(usernameEl, 'Username cannot be blank.');
+    } 
+    else {
+        showSuccess(usernameEl);
+        valid = true;
+    }
+    return valid;
+}
+
+const checkEmail = () => {
+  let valid = false;
+  const email = emailEl.value.trim();
+  if (!isRequired(email)) {
+      showError(emailEl, 'Email cannot be blank.');
+  } else if (!isEmailValid(email)) {
+      showError(emailEl, 'Email is not valid.')
+  } else {
+      showSuccess(emailEl);
+      valid = true;
   }
+  return valid;
+}
+
+const checkPassword = () => {
+
+  let valid = false;
+
+  const password = passwordEl.value.trim();
+
+  if (!isRequired(password)) {
+      showError(passwordEl, 'Password cannot be blank.');
+  } else if (!isPasswordSecure(password)) {
+      showError(passwordEl, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
+  } else {
+      showSuccess(passwordEl);
+      valid = true;
+  }
+
+  return valid;
+};
+
+const checkConfirmPassword = () => {
+  let valid = false;
+  // check confirm password
+  const confirmPassword = confirmPasswordEl.value.trim();
+  const password = passwordEl.value.trim();
+
+  if (!isRequired(confirmPassword)) {
+      showError(confirmPasswordEl, 'Please enter the password again');
+  } else if (password !== confirmPassword) {
+      showError(confirmPasswordEl, 'Confirm password does not match');
+  } else {
+      showSuccess(confirmPasswordEl);
+      valid = true;
+  }
+
+  return valid;
+};
+
+form.addEventListener('submit', function (e) {
+  // prevent the form from submitting
+  e.preventDefault();
+
+  // validate forms
+  let isUsernameValid = checkUsername(),
+      isEmailValid = checkEmail(),
+      isPasswordValid = checkPassword(),
+      isConfirmPasswordValid = checkConfirmPassword();
+
+  let isFormValid = isUsernameValid &&
+      isEmailValid &&
+      isPasswordValid &&
+      isConfirmPasswordValid;
+
+  // submit to the server if the form is valid
+  if (isFormValid) {
+
+  }
+});
+
+
 
 
 var password = document.getElementById('password');

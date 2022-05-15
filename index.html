@@ -18,9 +18,9 @@
 <body>
 
 
-    <section class="container-sm my-5 lg-w-50 rounded-3 shadow-lg p-5" id="container">
+    <section class="col-11 container-sm my-5 lg-w-50 rounded-3 shadow-lg p-5" id="container">
 
-        <form action="/" method="post" id="signup-form">
+        <form class="needs-validation" action="/" method="post" id="signup-form">
 
             <h1 class="fs-1 my-5 text-capitalize text-center fw-bolder">Create an account with us today</h1>
 
@@ -35,6 +35,9 @@
                             </div>
                             <input class="form-control" type="text" name="user-name" id="username"
                                 placeholder="Username" required>
+                            <div class="valid-feedback">
+                                looks good
+                            </div>
                         </div>
                     </fieldset>
                     <div class="form-field__messages"></div>
@@ -123,7 +126,7 @@
 
                 </fieldset>
 
-                <button class="btn d-block w-50 mb-5 mt-5 mx-auto bg-dark text-light py-3 px-5 border border-none rounded-pill"
+                <button class="btn d-block w-50 mb-5 mt-5 mx-auto btn-danger text-light py-3 px-5 border border-none rounded-pill"
                     type="submit">Submit</button>
 
             </div>
