@@ -1,0 +1,29 @@
+body{
+    background: linear-gradient(45deg, red, rgb(28, 28, 253));
+    color: whitesmoke;
+}
+
+#container{
+    background-color: rgba(31, 31, 31, 0.3);
+}
+
+/*input{
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+input:focus{
+    outline: 2px solid rgba(107, 107, 252, 0.5);
+    background-color: rgb(192, 184, 184);
+}
+
+button{
+    outline: none;
+}
+
+button:hover{
+
+}*/
