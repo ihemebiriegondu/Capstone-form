@@ -30,7 +30,9 @@ function validateForm() {
   var pw2 = document.getElementById("pswd2").value;
   var name1 = document.getElementById("fname").value;
   var email = document.getElementById("useremail").value;
-  var emailformat = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
+  var emailformat = document.getElementById("useremail").value;
+  var emailposition = email.indexOf("@");
+  var emaildotposition = email.lastIndexOf(".");
   var phone = document.getElementById("userphonenumber").value;
   var gender = document.getElementById("gender").checked;
   var policy = document.getElementById("policy").checked;
@@ -42,25 +44,25 @@ function validateForm() {
     return false;
   }
 
+
+
   //check empty email field
   if (email == "") {
-    document.getElementById("emailmsg").innerHTML = "Enter an email address";
+    document.getElementById("emailmsg").innerHTML = "**Enter an email address";
     document.getElementById("emailmsg").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
     document.getElementById("blankMsg").style.backgroundColor = "transparent";
     return false;
   }
 
-  /*if (inputEmail.value.match(emailformat)) {
-    alert("You have entered a valid email address!");    //The pop up alert for a valid email address
-    validateForm();
-    return true;
-  }
-  else {
-    alert("You have entered an invalid email address!");    //The pop up alert for an invalid email address
-    onsubmit="return validateForm()"
-    return false;
-  }*/
+  if (emailposition<1 || emaildotposition<emailposition+2 || emaildotposition+2>=email.length){  
+    document.getElementById("emailmsg").innerHTML = "**Please enter a valid e-mail address";
+    document.getElementById("emailmsg").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
+    //alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+    return false;  
+    }  
 
   //check empty phone number field
   if (phone == "") {
