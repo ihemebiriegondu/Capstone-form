@@ -66,6 +66,8 @@ function validateForm() {
   if (phone == "") {
     document.getElementById("numbermsg").innerHTML = "**Enter your phone number";
     document.getElementById("numbermsg").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
     document.getElementById("emailmsg").innerHTML = "";
     document.getElementById("emailmsg").style.backgroundColor = "transparent";
     return false;
@@ -75,6 +77,10 @@ function validateForm() {
   if (pw1 == "") {
     document.getElementById("message1").innerHTML = "**Enter a password";
     document.getElementById("message1").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
+    document.getElementById("emailmsg").innerHTML = "";
+    document.getElementById("emailmsg").style.backgroundColor = "transparent";
     document.getElementById("numbermsg").innerHTML = "";
     document.getElementById("numbermsg").style.backgroundColor = "transparent";
     return false;
@@ -84,6 +90,12 @@ function validateForm() {
   if (pw1.length < 8) {
     document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";
     document.getElementById("message1").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
+    document.getElementById("emailmsg").innerHTML = "";
+    document.getElementById("emailmsg").style.backgroundColor = "transparent";
+    document.getElementById("numbermsg").innerHTML = "";
+    document.getElementById("numbermsg").style.backgroundColor = "transparent";
     document.getElementById("numbermsg").innerHTML = "";
     document.getElementById("numbermsg").style.backgroundColor = "transparent";
     return false;
@@ -93,6 +105,12 @@ function validateForm() {
   if (pw1.length > 100) {
     document.getElementById("message1").innerHTML = "**Password length must not exceed 100 characters";
     document.getElementById("message1").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
+    document.getElementById("emailmsg").innerHTML = "";
+    document.getElementById("emailmsg").style.backgroundColor = "transparent";
+    document.getElementById("numbermsg").innerHTML = "";
+    document.getElementById("numbermsg").style.backgroundColor = "transparent";
     document.getElementById("numbermsg").innerHTML = "";
     document.getElementById("numbermsg").style.backgroundColor = "transparent";
     return false;
@@ -102,6 +120,12 @@ function validateForm() {
   if (pw2 == "") {
     document.getElementById("message2").innerHTML = "**Confirm your password";
     document.getElementById("message2").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
+    document.getElementById("emailmsg").innerHTML = "";
+    document.getElementById("emailmsg").style.backgroundColor = "transparent";
+    document.getElementById("numbermsg").innerHTML = "";
+    document.getElementById("numbermsg").style.backgroundColor = "transparent";
     document.getElementById("message1").innerHTML = "";
     document.getElementById("message1").style.backgroundColor = "transparent";
     return false;
@@ -110,6 +134,12 @@ function validateForm() {
   if (pw1 != pw2) {
     document.getElementById("message2").innerHTML = "**Passwords are not the same";
     document.getElementById("message2").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
+    document.getElementById("emailmsg").innerHTML = "";
+    document.getElementById("emailmsg").style.backgroundColor = "transparent";
+    document.getElementById("numbermsg").innerHTML = "";
+    document.getElementById("numbermsg").style.backgroundColor = "transparent";
     document.getElementById("message1").innerHTML = "";
     document.getElementById("message1").style.backgroundColor = "transparent";
     return false;
@@ -118,6 +148,14 @@ function validateForm() {
   if (!gender) {
     document.getElementById("gendermsg").innerHTML = "**Pick a gender";
     document.getElementById("gendermsg").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
+    document.getElementById("emailmsg").innerHTML = "";
+    document.getElementById("emailmsg").style.backgroundColor = "transparent";
+    document.getElementById("numbermsg").innerHTML = "";
+    document.getElementById("numbermsg").style.backgroundColor = "transparent";
+    document.getElementById("message1").innerHTML = "";
+    document.getElementById("message1").style.backgroundColor = "transparent";
     document.getElementById("message2").innerHTML = "";
     document.getElementById("message2").style.backgroundColor = "transparent";
     return false;
@@ -127,6 +165,16 @@ function validateForm() {
   if (!policy) {
     document.getElementById("policymsg").innerHTML = "**Agree to privacy policy";
     document.getElementById("policymsg").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
+    document.getElementById("emailmsg").innerHTML = "";
+    document.getElementById("emailmsg").style.backgroundColor = "transparent";
+    document.getElementById("numbermsg").innerHTML = "";
+    document.getElementById("numbermsg").style.backgroundColor = "transparent";
+    document.getElementById("message1").innerHTML = "";
+    document.getElementById("message1").style.backgroundColor = "transparent";
+    document.getElementById("message2").innerHTML = "";
+    document.getElementById("message2").style.backgroundColor = "transparent";
     document.getElementById("gendermsg").innerHTML = "";
     document.getElementById("gendermsg").style.backgroundColor = "transparent";
     return false;
