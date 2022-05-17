@@ -34,13 +34,9 @@ function validateForm() {
   var emailposition = email.indexOf("@");
   var emaildotposition = email.lastIndexOf(".");
   var phone = document.getElementById("userphonenumber").value;
-<<<<<<< HEAD
   var fgender = document.getElementById("fgender").checked;
   var mgender = document.getElementById("mgender").checked;
   var ogender = document.getElementById("ogender").checked;
-=======
-  var gender = document.getElementById("gender").checked;
->>>>>>> 9c20b255dfb7b0ff9baa19db7810b5e7edfbc63a
   var policy = document.getElementById("policy").checked;
 
   //check empty username field  
@@ -198,12 +194,8 @@ function validateForm() {
     return false;
   }
 
-<<<<<<< HEAD
   //gender confirmation
   if (!fgender && !mgender && !ogender) {
-=======
-  if (!gender) {
->>>>>>> 9c20b255dfb7b0ff9baa19db7810b5e7edfbc63a
     document.getElementById("gendermsg").innerHTML = "**Pick a gender";
     document.getElementById("gendermsg").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
