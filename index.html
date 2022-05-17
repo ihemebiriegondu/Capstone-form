@@ -129,16 +129,16 @@
       <fieldset class="form-field">
         <h5 class="py-3 fs-5 fw-bold">Gender</h5>
         <div class="d-flex mb-5">
-          <div class="ms-md-5">
-            <input class="form-check-input" type="radio" name="usergender" id="gender">
+          <div class="ms-md-5" id="gendergroup">
+            <input class="form-check-input" type="radio" name="usergender" id="gender" value="female">
             <label class="form-check-label" for="femalegender">Female</label>
           </div>
           <div class="ms-4 ms-md-5 me-4 me-md-5">
-            <input class="form-check-input" type="radio" name="usergender" id="gender">
+            <input class="form-check-input" type="radio" name="usergender" id="gender" value="male">
             <label class="form-check-label" for="malegender">Male</label>
           </div>
           <div class="">
-            <input class="form-check-input" type="radio" name="usergender" id="gender">
+            <input class="form-check-input" type="radio" name="usergender" id="gender" value="other">
             <label class="form-check-label" for="nogender">Others</label>
           </div>
         </div>
@@ -163,9 +163,6 @@
     </form>
 
   </section>
-  <script>
-    document.getElementById("policy").setCustomValidity("Please indicate that you accept the Terms and Conditions");
-  </script>
 
   <script src="./JS/index.js"></script>
   <script src="bootstrap.bundle.min.js"></script>

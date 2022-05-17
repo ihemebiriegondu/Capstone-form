@@ -35,11 +35,13 @@ function validateForm() {
   var emaildotposition = email.lastIndexOf(".");
   var phone = document.getElementById("userphonenumber").value;
   var gender = document.getElementById("gender").checked;
+  var gendergroup = document.getElementById("gendergroup");
   var policy = document.getElementById("policy").checked;
 
   //check empty username field  
   if (name1 == "") {
-    document.getElementById("blankMsg").innerHTML = "**Enter a Username";
+    document.getElementById("fname").focus();
+    document.getElementById("blankMsg").innerHTML = "**Username cannot be blank";
     document.getElementById("blankMsg").style.backgroundColor = "rgb(248, 204, 204)";
     return false;
   }
@@ -48,6 +50,7 @@ function validateForm() {
 
   //check empty email field
   if (email == "") {
+    document.getElementById("useremail").focus();
     document.getElementById("emailmsg").innerHTML = "**Enter an email address";
     document.getElementById("emailmsg").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
@@ -55,7 +58,8 @@ function validateForm() {
     return false;
   }
 
-  if (emailposition<1 || emaildotposition<emailposition+2 || emaildotposition+2>=email.length){  
+  if (emailposition<1 || emaildotposition<emailposition+2 || emaildotposition+2>=email.length){ 
+    document.getElementById("useremail").focus(); 
     document.getElementById("emailmsg").innerHTML = "**Please enter a valid e-mail address";
     document.getElementById("emailmsg").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
@@ -66,6 +70,7 @@ function validateForm() {
 
   //check empty phone number field
   if (phone == "") {
+    document.getElementById("userphonenumber").focus();
     document.getElementById("numbermsg").innerHTML = "**Enter your phone number";
     document.getElementById("numbermsg").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
@@ -75,7 +80,19 @@ function validateForm() {
     return false;
   }
 
+  if (phone.length < 5 ) {
+    document.getElementById("userphonenumber").focus();
+    document.getElementById("numbermsg").innerHTML = "**Enter a valid phone number";
+    document.getElementById("numbermsg").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
+    document.getElementById("emailmsg").innerHTML = "";
+    document.getElementById("emailmsg").style.backgroundColor = "transparent";
+    return false;
+  }  
+
   if (isNaN(phone)){
+    document.getElementById("userphonenumber").focus();
     document.getElementById("numbermsg").innerHTML = "**Enter numeric values only";
     document.getElementById("numbermsg").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
@@ -87,7 +104,22 @@ function validateForm() {
 
   //check empty password field  
   if (pw1 == "") {
+    document.getElementById("pswd1").focus();
     document.getElementById("message1").innerHTML = "**Enter a password";
+    document.getElementById("message1").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
+    document.getElementById("emailmsg").innerHTML = "";
+    document.getElementById("emailmsg").style.backgroundColor = "transparent";
+    document.getElementById("numbermsg").innerHTML = "";
+    document.getElementById("numbermsg").style.backgroundColor = "transparent";
+    return false;
+  }
+
+  //password not equal to username
+  if (pw1 == name1) {
+    document.getElementById("pswd1").focus();
+    document.getElementById("message1").innerHTML = "**Password cannot be the same with Username";
     document.getElementById("message1").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
     document.getElementById("blankMsg").style.backgroundColor = "transparent";
@@ -100,6 +132,7 @@ function validateForm() {
 
   //minimum password length validation  
   if (pw1.length < 8) {
+    document.getElementById("pswd1").focus();
     document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";
     document.getElementById("message1").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
@@ -115,6 +148,7 @@ function validateForm() {
 
   //maximum length of password validation  
   if (pw1.length > 100) {
+    document.getElementById("pswd1").focus();
     document.getElementById("message1").innerHTML = "**Password length must not exceed 100 characters";
     document.getElementById("message1").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
@@ -130,6 +164,7 @@ function validateForm() {
 
   //check empty confirm password field  
   if (pw2 == "") {
+    document.getElementById("pswd2").focus();
     document.getElementById("message2").innerHTML = "**Confirm your password";
     document.getElementById("message2").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
@@ -144,6 +179,7 @@ function validateForm() {
   }
 
   if (pw1 != pw2) {
+    document.getElementById("pswd2").focus();
     document.getElementById("message2").innerHTML = "**Passwords are not the same";
     document.getElementById("message2").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
@@ -158,6 +194,7 @@ function validateForm() {
   }
 
   if (!gender) {
+    document.getElementById("gendergroup").focus();
     document.getElementById("gendermsg").innerHTML = "**Pick a gender";
     document.getElementById("gendermsg").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
@@ -175,6 +212,7 @@ function validateForm() {
 
 
   if (!policy) {
+    document.getElementById("policy").focus();
     document.getElementById("policymsg").innerHTML = "**Agree to privacy policy";
     document.getElementById("policymsg").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
