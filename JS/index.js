@@ -34,8 +34,9 @@ function validateForm() {
   var emailposition = email.indexOf("@");
   var emaildotposition = email.lastIndexOf(".");
   var phone = document.getElementById("userphonenumber").value;
-  var gender = document.getElementById("gender").checked;
-  var gendergroup = document.getElementById("gendergroup");
+  var fgender = document.getElementById("fgender").checked;
+  var mgender = document.getElementById("mgender").checked;
+  var ogender = document.getElementById("ogender").checked;
   var policy = document.getElementById("policy").checked;
 
   //check empty username field  
@@ -193,8 +194,8 @@ function validateForm() {
     return false;
   }
 
-  if (!gender) {
-    document.getElementById("gendergroup").focus();
+  //gender confirmation
+  if (!fgender && !mgender && !ogender) {
     document.getElementById("gendermsg").innerHTML = "**Pick a gender";
     document.getElementById("gendermsg").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
