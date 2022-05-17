@@ -168,26 +168,6 @@ mediaButton.onclick = function () {
     
 };
 
-
-var password = document.getElementById('pswd1');
-/*var password = document.getElementById('pswd2');*/
-var togglePassword = document.getElementById('togglePassword');  
-
-showHidePassword = () => {
-  if (password.type == 'password') {
-    password.setAttribute('type', 'text');
-    togglePassword.classList.remove('fa fa-eye');
-    togglePassword.classList.add('fa-eye-slash');
-  } else {
-    togglePassword.classList.remove('fa-eye-slash');
-    togglePassword.classList.add('fa-eye');
-    password.setAttribute('type', 'password');
-  }
-};
-
-togglePassword.addEventListener('click', showHidePassword);
-
-
  
 
  function validateForm() {  
@@ -196,7 +176,9 @@ togglePassword.addEventListener('click', showHidePassword);
   var pw2 = document.getElementById("pswd2").value;  
   var name1 = document.getElementById("fname").value;  
   var email = document.getElementById("useremail").value;
-    
+  var phone = document.getElementById("userphonenumber").value;  
+  var gender = document.getElementById("gender").value;
+  
   //check empty username field  
   if(name1 == "") {  
     document.getElementById("blankMsg").innerHTML = "Enter a Username";  
@@ -210,9 +192,15 @@ togglePassword.addEventListener('click', showHidePassword);
   }
   
   //check correct email type
-   if(email !== "/^\S+@\S+$/g"){
+   /*if(email !== "/^\S+@\S+$/g"){
     document.getElementById("emailmsg").innerHTML =
      "Enter a valid email address";
+    return false;
+  }*/
+
+  //check empty phone number field
+  if(phone ==""){
+    document.getElementById("numbermsg").innerHTML = "Enter your phone number";
     return false;
   }
   
@@ -243,7 +231,46 @@ togglePassword.addEventListener('click', showHidePassword);
   if(pw1 != pw2) {  
     document.getElementById("message2").innerHTML = "**Passwords are not same";  
     return false;  
-  } else {  
+  } 
+
+  if(gender ==""){
+    document.getElementById("gendermsg").innerHTML = "Enter an email address";
+    return false;
+  }
+
+  else {  
     document.write("Account created successfully");
   }  
 }  
+
+
+var password = document.getElementById('pswd1');
+var password = document.getElementById('pswd2');
+var togglePassword1 = document.getElementById('togglePassword1');  
+var togglePassword2 = document.getElementById('togglePassword2');  
+
+showHidePassword = () => {
+  if (password.type == 'password') {
+    password.setAttribute('type', 'text');
+    togglePassword1.classList.remove('fa fa-eye');
+    togglePassword1.classList.add('fa-eye-slash');
+  } else {
+    togglePassword1.classList.remove('fa-eye-slash');
+    togglePassword1.classList.add('fa-eye');
+    password.setAttribute('type', 'password');
+  }
+};
+showHidePassword = () => {
+  if (password.type == 'password') {
+    password.setAttribute('type', 'text');
+    togglePassword2.classList.remove('fa fa-eye');
+    togglePassword2.classList.add('fa-eye-slash');
+  } else {
+    togglePassword2.classList.remove('fa-eye-slash');
+    togglePassword2.classList.add('fa-eye');
+    password.setAttribute('type', 'password');
+  }
+};
+
+togglePassword1.addEventListener('click', showHidePassword);
+togglePassword2.addEventListener('click', showHidePassword);

@@ -16,31 +16,31 @@
 </head>
 
 <body>
-  
+
   <nav class="nav">
     <div class="container">
-         <div id="logo"><img src="logo_dppl.png" alt="logo" width="80px" height="90px"></div>
-        <div id="navbar" class="topnavbar">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="/index.html">Login</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <div class="media_button">
-            <button class="main_media_button" id="mediaButton">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+      <div id="logo"><img src="logo_dppl.png" alt="logo" width="80px" height="90px"></div>
+      <div id="navbar" class="topnavbar">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a id="login-page" href="/index.html">Login</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="media_button">
+        <button class="main_media_button" id="mediaButton">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
-</nav>
-  
-  
-  
- <!-- <header>
+  </nav>
+
+
+
+  <!-- <header>
     <div id="logo"><img src="logo_dppl.png" alt="logo" width="90px" height="70px"></div>
         <div id="navbar" class="topnavbar">
           <div id="navigations">
@@ -55,11 +55,12 @@
             </div>
         </div>
   </header>-->
-  
-  
+
+
   <section class="col-md-10 container-sm my-5 rounded-3 shadow-lg p-5" id="container">
 
-    <form class="needs-validation" novalidate action="/index.html" method="post" id="signup-form" onsubmit="return validateForm()">
+    <form class="needs-validation" novalidate action="/index.html" method="post" id="signup-form"
+      onsubmit="return validateForm()">
 
       <h1 class="fs-1 my-2 text-capitalize text-center fw-bolder">Sign Up</h1>
       <h5 class="pt-3">Please fill in this form to create an account!</h5>
@@ -75,7 +76,7 @@
             </div>
             <input class="form-control" type="text" name="user-name" placeholder="Username" id="fname" value="">
           </div>
-          <div id="blankMsg" style="color:red"> </div>
+          <div class="form-text text-danger" id="blankMsg"> </div>
         </fieldset>
       </div>
 
@@ -84,29 +85,29 @@
           <label class="control-label my-4" for="useremail">Email</label>
           <div class="input-group">
             <div class="input-group-addon text-dark bg-light p-3">
-              <i class="fa fa-envelope"aria-hidden="true"></i>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
             </div>
-            <input class="form-control" type="email" name="user-email"
-            id="useremail" placeholder="Email Address" value="">
+            <input class="form-control" type="email" name="user-email" id="useremail" placeholder="Email Address"
+              value="">
           </div>
-          <div id="emailmsg" style="color:red"> </div>
+          <div class="form-text text-danger" id="emailmsg"> </div>
         </fieldset>
       </div>
 
       <div>
         <fieldset class="form-group">
-        <label class="control-label my-4" for="userphonenumber">Phone number</label>
-             <div class="input-group">
+          <label class="control-label my-4" for="userphonenumber">Phone number</label>
+          <div class="input-group">
             <div class="input-group-addon text-dark bg-light p-3">
               <i class="fa fa-phone" aria-hidden="true"></i>
             </div>
-            <input class="form-control" type="tel" name="user-phonenumber"
-          id="userphonenumber" placeholder="Phone number" value="">
+            <input class="form-control" type="tel" name="user-phonenumber" id="userphonenumber"
+              placeholder="Phone number" value="">
           </div>
-          <div id="numbermsg" style="color:red"> </div>
-      </fieldset>
+          <div class="form-text text-danger" id="numbermsg"> </div>
+        </fieldset>
       </div>
-      
+
 
       <div>
         <fieldset class="form-group">
@@ -117,7 +118,7 @@
             </div>
             <input class="form-control" name="user-password" placeholder="Password" type="password" id="pswd1" value="">
             <div class="input-group-addon text-dark bg-light p-3">
-              <i class="fa fa-eye" aria-hidden="true" id="togglePassword"></i>
+              <i class="fa fa-eye" aria-hidden="true" id="togglePassword1"></i>
             </div>
           </div>
           <div class="form-text text-danger" id="message1">
@@ -135,7 +136,7 @@
             <input class="form-control" type="password" placeholder="Confirm password" name="confirm-password"
               id="pswd2" value="">
             <div class="input-group-addon text-dark bg-light p-3">
-              <i class="fa fa-eye" aria-hidden="true" id="togglePassword"></i>
+              <i class="fa fa-eye" aria-hidden="true" id="togglePassword2"></i>
             </div>
           </div>
           <div class="form-text text-danger" id="message2">
@@ -147,18 +148,19 @@
         <h5 class="py-3 fs-5 fw-bold">Gender</h5>
         <div class="d-flex mb-5">
           <div class="ms-md-5">
-            <input class="form-check-input" type="radio" name="usergender" id="femalegender">
+            <input class="form-check-input" type="radio" name="usergender" id="gender">
             <label class="form-check-label" for="femalegender">Female</label>
           </div>
           <div class="ms-4 ms-md-5 me-4 me-md-5">
-            <input class="form-check-input" type="radio" name="usergender" id="malegender">
+            <input class="form-check-input" type="radio" name="usergender" id="gender">
             <label class="form-check-label" for="malegender">Male</label>
           </div>
           <div class="">
-            <input class="form-check-input" type="radio" name="usergender" id="nogender">
+            <input class="form-check-input" type="radio" name="usergender" id="gender">
             <label class="form-check-label" for="nogender">Others</label>
           </div>
-
+          <div class="form-text text-danger" id="gendermsg">
+          </div>
         </div>
       </fieldset>
       <hr>

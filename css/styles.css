@@ -9,8 +9,34 @@ body{
     background-color: rgba(31, 31, 31, 0.3);
 }
 
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 a{
   text-decoration: none;
+}
+
+#login-page{
+    background-color: blue;
+    padding: 1rem 1rem;
+    border-radius: 8px;
+}
+
+#login-page:hover{
+    background-color: rgb(91, 91, 251);
+}
+
+input{
+    outline: none;
+    border: none;
+}
+
+input:hover{
+    outline: none;
+    border: none;
 }
 
 *{
@@ -27,7 +53,7 @@ a{
     sans-serif,
     "Apple Color Emoji",
     "Segoe UI Emoji",
-    "Segoe UI symbols
+    "Segoe UI symbols"
 }
 
 .nav{
