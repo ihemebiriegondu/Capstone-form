@@ -18,7 +18,7 @@
 <body>
 
   <nav class="nav">
-    <div class="container">
+    <div class="header">
       <div id="logo"><img src="logo_dppl.png" alt="logo" width="80px" height="90px"></div>
       <div id="navbar" class="topnavbar">
         <ul>
@@ -28,36 +28,15 @@
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
-      <div class="media_button">
-        <button class="main_media_button" id="mediaButton">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
+      <div id="menuicon" class="menubutton">
+        <a href="javascript:void(0)";class="icon">
+        <i class="fa fa-bars fa-2x main_media_button" id="mediaButton"></i></a>
+     </div>
     </div>
   </nav>
 
 
-
-  <!-- <header>
-    <div id="logo"><img src="logo_dppl.png" alt="logo" width="90px" height="70px"></div>
-        <div id="navbar" class="topnavbar">
-          <div id="navigations">
-            <a href="#">About</a>
-            <a href="#">Search</a>
-            <a href="#">Contact</a>
-            <a href="#">Login</a>
-          </div>
-            <div id="menuicon">
-               <a href="javascript:void(0)";class="icon" onclick="myFunction()">
-               <i class="fa fa-bars" id="bars"></i></a>
-            </div>
-        </div>
-  </header>-->
-
-
-  <section class="col-md-10 container-sm my-5 rounded-3 shadow-lg p-5" id="container">
+  <section class="col-12 col-md-9 col-lg-8 col-xl-6 container-sm my-4 my-md-5 rounded-3 shadow-lg p-5">
 
     <form class="needs-validation" novalidate action="/index.html" method="post" id="signup-form"
       onsubmit="return validateForm()">
@@ -74,9 +53,9 @@
             <div class="input-group-addon text-dark bg-light p-3">
               <i class="fa fa-user" aria-hidden="true"></i>
             </div>
-            <input class="form-control" type="text" name="user-name" placeholder="Username" id="fname" value="">
+            <input class="form-control shadow-none" type="text" name="user-name" placeholder="Username" id="fname" value="">
           </div>
-          <div class="form-text text-danger" id="blankMsg"> </div>
+          <div class="form-text text-danger p-2" id="blankMsg"> </div>
         </fieldset>
       </div>
 
@@ -87,10 +66,10 @@
             <div class="input-group-addon text-dark bg-light p-3">
               <i class="fa fa-envelope" aria-hidden="true"></i>
             </div>
-            <input class="form-control" type="email" name="user-email" id="useremail" placeholder="Email Address"
+            <input class="form-control shadow-none" type="email" name="user-email" id="useremail" placeholder="Email Address"
               value="">
           </div>
-          <div class="form-text text-danger" id="emailmsg"> </div>
+          <div class="form-text text-danger p-2" id="emailmsg"> </div>
         </fieldset>
       </div>
 
@@ -101,10 +80,10 @@
             <div class="input-group-addon text-dark bg-light p-3">
               <i class="fa fa-phone" aria-hidden="true"></i>
             </div>
-            <input class="form-control" type="tel" name="user-phonenumber" id="userphonenumber"
-              placeholder="Phone number" value="">
+            <input class="form-control shadow-none" type="tel" name="user-phonenumber" id="userphonenumber"
+              placeholder="Phone number" maxlength="14" value="">
           </div>
-          <div class="form-text text-danger" id="numbermsg"> </div>
+          <div class="form-text text-danger p-2" id="numbermsg"> </div>
         </fieldset>
       </div>
 
@@ -116,12 +95,13 @@
             <div class="input-group-addon text-dark bg-light p-3">
               <i class="fa fa-lock" aria-hidden="true"></i>
             </div>
-            <input class="form-control" name="user-password" placeholder="Password" type="password" id="pswd1" value="">
+            <input class="form-control shadow-none" name="user-password" placeholder="Password" type="password" id="pswd1"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?.*\d)[a-zA-Z\d]{8,8}$" value="">
             <div class="input-group-addon text-dark bg-light p-3">
               <i class="fa fa-eye" aria-hidden="true" id="togglePassword1"></i>
             </div>
           </div>
-          <div class="form-text text-danger" id="message1">
+          <div class="form-text text-danger p-2" id="message1">
           </div>
         </fieldset>
       </div>
@@ -133,13 +113,13 @@
             <div class="input-group-addon text-dark bg-light p-3">
               <i class="fa fa-lock" aria-hidden="true" id="toggle"></i>
             </div>
-            <input class="form-control" type="password" placeholder="Confirm password" name="confirm-password"
+            <input class="form-control shadow-none" type="password" placeholder="Confirm password" name="confirm-password"
               id="pswd2" value="">
             <div class="input-group-addon text-dark bg-light p-3">
               <i class="fa fa-eye" aria-hidden="true" id="togglePassword2"></i>
             </div>
           </div>
-          <div class="form-text text-danger" id="message2">
+          <div class="form-text text-danger p-2" id="message2">
           </div>
         </fieldset>
       </div>
@@ -159,15 +139,18 @@
             <input class="form-check-input" type="radio" name="usergender" id="gender">
             <label class="form-check-label" for="nogender">Others</label>
           </div>
-          <div class="form-text text-danger" id="gendermsg">
-          </div>
+        </div>
+        <div class="form-text text-danger p-2" id="gendermsg">
         </div>
       </fieldset>
       <hr>
 
       <div class="form-group">
-        <label class="form-check-label"><input class="pe-2" type="checkbox"> I accept the <a href="#">Terms of
+        <label class="form-check-label"><input id="policy" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" class="pe-2" type="checkbox" name="checkbox" value="check" required> I accept the <a href="#">Terms
+            of
             Use</a> &amp; <a href="#">Privacy Policy</a></label>
+        <div class="form-text text-danger p-2" id="policymsg" >
+        </div>
       </div>
 
       <button
@@ -178,6 +161,10 @@
     </form>
 
   </section>
+  <script>
+    document.getElementById("policy").setCustomValidity("Please indicate that you accept the Terms and Conditions");
+  </script>
+
   <script src="/JS/index.js"></script>
   <script src="bootstrap.bundle.min.js"></script>
 </body>

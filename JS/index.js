@@ -1,276 +1,179 @@
-/*function handleSignupFormSubmit(e) {
-    // prevent default browser behaviour
-    e.preventDefault();
-  
-    const formDataEntries = new FormData(signupForm).entries();
-    const { email, password } = Object.fromEntries(formDataEntries);
-  
-    // submit email and password to an API
-  }
 
-function validatePassword(password, minlength) {
-    if (!password) return 'Password is required';
-  
-    if (password.length < minlength) {
-      return `Please enter a password that's at least ${minlength} characters long`;
-    }
-  
-    return '';
-  }
+var mediaButton = document.getElementById("mediaButton");
+var topnavbarDiv = document.getElementById("navbar");
+var icon = mediaButton.getElementsByClassName("fa-bars")
 
-  function validateEmail(email) {
-    if (!email) return 'Email is required';
-      
-    const isValidEmail = /^\S+@\S+$/g
-    if (!isValidEmail.test(email)) {
-      return 'Please enter a valid email';
-    }
-  
-    return '';
-  }
-
-  function handleSignupFormSubmit(e) {
-    // prevent default browser behaviour
-    e.preventDefault();
-  
-    const formDataEntries = new FormData(signupForm).entries();
-    const { email, password } = Object.fromEntries(formDataEntries);
-  
-    const emailErrorMessage = validateEmail(email);
-    const passowrdErrorMessage = validatePassword(password);
-  
-    if (!emailErrorMessage) {
-      // select the email form field message element
-      const emailErrorMessageElement = document.querySelector('#useremail .form-field__messages');
-      // show email error message to user
-      emailErrorMessageElement.innerText = emailErrorMessage;
-    }
-  
-    if (passowrdErrorMessage) {
-      // select the email form field message element
-      const passwordErrorMessageElement = document.querySelector('#password .form-field__messages');
-      // show password error message to user
-      passwordErrorMessageElement.innerText = passowrdErrorMessage;
-    }
-  }*/
-
-
-
-
-/*const checkUsername = () => {
-
-  let valid = false;
-  const min = 3,
-      max = 25;
-  const username = usernameEl.value.trim();
-
-  if (!isRequired(username)) {
-      showError(usernameEl, 'Username cannot be blank.');
-  } 
-  else {
-      showSuccess(usernameEl);
-      valid = true;
-  }
-  return valid;
-}
-
-const checkEmail = () => {
-let valid = false;
-const email = emailEl.value.trim();
-if (!isRequired(email)) {
-    showError(emailEl, 'Email cannot be blank.');
-} else if (!isEmailValid(email)) {
-    showError(emailEl, 'Email is not valid.')
-} else {
-    showSuccess(emailEl);
-    valid = true;
-}
-return valid;
-}
-
-const checkPassword = () => {
-
-let valid = false;
-
-const password = passwordEl.value.trim();
-
-if (!isRequired(password)) {
-    showError(passwordEl, 'Password cannot be blank.');
-} else if (!isPasswordSecure(password)) {
-    showError(passwordEl, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
-} else {
-    showSuccess(passwordEl);
-    valid = true;
-}
-
-return valid;
-};
-
-const checkConfirmPassword = () => {
-let valid = false;
-// check confirm password
-const confirmPassword = confirmPasswordEl.value.trim();
-const password = passwordEl.value.trim();
-
-if (!isRequired(confirmPassword)) {
-    showError(confirmPasswordEl, 'Please enter the password again');
-} else if (password !== confirmPassword) {
-    showError(confirmPasswordEl, 'Confirm password does not match');
-} else {
-    showSuccess(confirmPasswordEl);
-    valid = true;
-}
-
-return valid;
-};
-
-form.addEventListener('submit', function (e) {
-// prevent the form from submitting
-e.preventDefault();
-
-// validate forms
-let isUsernameValid = checkUsername(),
-    isEmailValid = checkEmail(),
-    isPasswordValid = checkPassword(),
-    isConfirmPasswordValid = checkConfirmPassword();
-
-let isFormValid = isUsernameValid &&
-    isEmailValid &&
-    isPasswordValid &&
-    isConfirmPasswordValid;
-
-// submit to the server if the form is valid
-if (isFormValid) {
-
-}
-});*/
-
-/*function myFunction() {
-  var x = document.getElementById("navbar");
-  if (x.className === "topnavbar") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnavbar";
-  }
-}
-*/
-
-
-var topnavbarDiv = document.getElementById("navbar"),
-    mediaButton = document.getElementById("mediaButton");
 
 mediaButton.onclick = function () {
-    
-    "use strict";
-    
-    topnavbarDiv.classList.toggle("show_list");
-    mediaButton.classList.toggle("active");
-    
+
+  topnavbarDiv.classList.toggle("show_list");
+  mediaButton.classList.toggle("active");
+
+
+  if (icon.classList.contains("fa-bars")) {
+    icon.classList.add("fa-times");
+    icon.classList.remove("fa-bars");
+  }
+
+  else {
+    icon.classList.remove("fa-times");
+    icon.classList.add("fa-bars");
+  }
+
 };
 
- 
 
- function validateForm() {  
+
+function validateForm() {
   //collect form data in JavaScript variables  
-  var pw1 = document.getElementById("pswd1").value;  
-  var pw2 = document.getElementById("pswd2").value;  
-  var name1 = document.getElementById("fname").value;  
+  var pw1 = document.getElementById("pswd1").value;
+  var pw2 = document.getElementById("pswd2").value;
+  var name1 = document.getElementById("fname").value;
   var email = document.getElementById("useremail").value;
-  var phone = document.getElementById("userphonenumber").value;  
-  var gender = document.getElementById("gender").value;
-  
+  var emailformat = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
+  var phone = document.getElementById("userphonenumber").value;
+  var gender = document.getElementById("gender").checked;
+  var policy = document.getElementById("policy").checked;
+
   //check empty username field  
-  if(name1 == "") {  
-    document.getElementById("blankMsg").innerHTML = "Enter a Username";  
-    return false;  
-  }  
-  
-  //check empty email field
-  if(email ==""){
-    document.getElementById("emailmsg").innerHTML = "Enter an email address";
+  if (name1 == "") {
+    document.getElementById("blankMsg").innerHTML = "**Enter a Username";
+    document.getElementById("blankMsg").style.backgroundColor = "rgb(248, 204, 204)";
     return false;
   }
-  
-  //check correct email type
-   /*if(email !== "/^\S+@\S+$/g"){
-    document.getElementById("emailmsg").innerHTML =
-     "Enter a valid email address";
+
+  //check empty email field
+  if (email == "") {
+    document.getElementById("emailmsg").innerHTML = "Enter an email address";
+    document.getElementById("emailmsg").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
+    return false;
+  }
+
+  /*if (inputEmail.value.match(emailformat)) {
+    alert("You have entered a valid email address!");    //The pop up alert for a valid email address
+    validateForm();
+    return true;
+  }
+  else {
+    alert("You have entered an invalid email address!");    //The pop up alert for an invalid email address
+    onsubmit="return validateForm()"
     return false;
   }*/
 
   //check empty phone number field
-  if(phone ==""){
-    document.getElementById("numbermsg").innerHTML = "Enter your phone number";
+  if (phone == "") {
+    document.getElementById("numbermsg").innerHTML = "**Enter your phone number";
+    document.getElementById("numbermsg").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("emailmsg").innerHTML = "";
+    document.getElementById("emailmsg").style.backgroundColor = "transparent";
     return false;
   }
-  
+
   //check empty password field  
-  if(pw1 == "") {  
-    document.getElementById("message1").innerHTML = "Enter a password";  
-    return false;  
-  }  
-   
+  if (pw1 == "") {
+    document.getElementById("message1").innerHTML = "**Enter a password";
+    document.getElementById("message1").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("numbermsg").innerHTML = "";
+    document.getElementById("numbermsg").style.backgroundColor = "transparent";
+    return false;
+  }
+
   //minimum password length validation  
-  if(pw1.length < 8) {  
-    document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";  
-    return false;  
-  }  
+  if (pw1.length < 8) {
+    document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";
+    document.getElementById("message1").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("numbermsg").innerHTML = "";
+    document.getElementById("numbermsg").style.backgroundColor = "transparent";
+    return false;
+  }
 
   //maximum length of password validation  
-  if(pw1.length > 50) {  
-    document.getElementById("message1").innerHTML = "**Password length must not exceed 50 characters";  
-    return false;  
-  }  
-  
-    //check empty confirm password field  
-  if(pw2 == "") {  
-    document.getElementById("message2").innerHTML = "Confirm your password";  
-    return false;  
-  }   
-  
-  if(pw1 != pw2) {  
-    document.getElementById("message2").innerHTML = "**Passwords are not same";  
-    return false;  
-  } 
-
-  if(gender ==""){
-    document.getElementById("gendermsg").innerHTML = "Enter an email address";
+  if (pw1.length > 100) {
+    document.getElementById("message1").innerHTML = "**Password length must not exceed 100 characters";
+    document.getElementById("message1").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("numbermsg").innerHTML = "";
+    document.getElementById("numbermsg").style.backgroundColor = "transparent";
     return false;
   }
 
-  else {  
+  //check empty confirm password field  
+  if (pw2 == "") {
+    document.getElementById("message2").innerHTML = "**Confirm your password";
+    document.getElementById("message2").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("message1").innerHTML = "";
+    document.getElementById("message1").style.backgroundColor = "transparent";
+    return false;
+  }
+
+  if (pw1 != pw2) {
+    document.getElementById("message2").innerHTML = "**Passwords are not the same";
+    document.getElementById("message2").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("message1").innerHTML = "";
+    document.getElementById("message1").style.backgroundColor = "transparent";
+    return false;
+  }
+
+  if (!gender) {
+    document.getElementById("gendermsg").innerHTML = "**Pick a gender";
+    document.getElementById("gendermsg").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("message2").innerHTML = "";
+    document.getElementById("message2").style.backgroundColor = "transparent";
+    return false;
+  }
+
+
+  if (!policy) {
+    document.getElementById("policymsg").innerHTML = "**Agree to privacy policy";
+    document.getElementById("policymsg").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("gendermsg").innerHTML = "";
+    document.getElementById("gendermsg").style.backgroundColor = "transparent";
+    return false;
+  }
+
+  else {
     document.write("Account created successfully");
-  }  
-}  
+  }
+}
 
 
-var password = document.getElementById('pswd1');
-var password = document.getElementById('pswd2');
-var togglePassword1 = document.getElementById('togglePassword1');  
-var togglePassword2 = document.getElementById('togglePassword2');  
+//visibility of password
+var password1 = document.getElementById('pswd1');
+var togglePassword1 = document.getElementById('togglePassword1');
 
-showHidePassword = () => {
-  if (password.type == 'password') {
-    password.setAttribute('type', 'text');
-    togglePassword1.classList.remove('fa fa-eye');
+showHidePassword1 = () => {
+  if (password1.type == 'password') {
+    password1.setAttribute('type', 'text');
     togglePassword1.classList.add('fa-eye-slash');
+    togglePassword1.classList.remove('fa fa-eye');
   } else {
+    password1.setAttribute('type', 'password');
     togglePassword1.classList.remove('fa-eye-slash');
     togglePassword1.classList.add('fa-eye');
-    password.setAttribute('type', 'password');
-  }
-};
-showHidePassword = () => {
-  if (password.type == 'password') {
-    password.setAttribute('type', 'text');
-    togglePassword2.classList.remove('fa fa-eye');
-    togglePassword2.classList.add('fa-eye-slash');
-  } else {
-    togglePassword2.classList.remove('fa-eye-slash');
-    togglePassword2.classList.add('fa-eye');
-    password.setAttribute('type', 'password');
   }
 };
 
-togglePassword1.addEventListener('click', showHidePassword);
-togglePassword2.addEventListener('click', showHidePassword);
+togglePassword1.addEventListener('click', showHidePassword1);
+
+
+var password2 = document.getElementById('pswd2');
+var togglePassword2 = document.getElementById('togglePassword2');
+
+showHidePassword2 = () => {
+  if (password2.type == 'password') {
+    password2.setAttribute('type', 'text');
+    togglePassword2.classList.add('fa-eye-slash');
+    togglePassword2.classList.remove('fa fa-eye');
+  } else {
+    password2.setAttribute('type', 'password');
+    togglePassword2.classList.remove('fa-eye-slash');
+    togglePassword2.classList.add('fa-eye');
+  }
+};
+
+togglePassword2.addEventListener('click', showHidePassword2);
+
+
+
+
