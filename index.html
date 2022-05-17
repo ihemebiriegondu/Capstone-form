@@ -16,18 +16,59 @@
 </head>
 
 <body>
-  <section class="col-md-10 container-sm my-5 lg-w-50 rounded-3 shadow-lg p-5" id="container">
+  
+  <nav class="nav">
+    <div class="container">
+         <div id="logo"><img src="logo_dppl.png" alt="logo" width="80px" height="90px"></div>
+        <div id="navbar" class="topnavbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="/index.html">Login</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="media_button">
+            <button class="main_media_button" id="mediaButton">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+  
+  
+  
+ <!-- <header>
+    <div id="logo"><img src="logo_dppl.png" alt="logo" width="90px" height="70px"></div>
+        <div id="navbar" class="topnavbar">
+          <div id="navigations">
+            <a href="#">About</a>
+            <a href="#">Search</a>
+            <a href="#">Contact</a>
+            <a href="#">Login</a>
+          </div>
+            <div id="menuicon">
+               <a href="javascript:void(0)";class="icon" onclick="myFunction()">
+               <i class="fa fa-bars" id="bars"></i></a>
+            </div>
+        </div>
+  </header>-->
+  
+  
+  <section class="col-md-10 container-sm my-5 rounded-3 shadow-lg p-5" id="container">
 
-    <form class="needs-validation" action="/index.html" method="post" id="signup-form" onsubmit="return validateForm()">
+    <form class="needs-validation" novalidate action="/index.html" method="post" id="signup-form" onsubmit="return validateForm()">
 
-      <h1 class="fs-1 my-5 text-capitalize text-center fw-bolder">Sign Up</h1>
-      <h2></h2>
+      <h1 class="fs-1 my-2 text-capitalize text-center fw-bolder">Sign Up</h1>
+      <h5 class="pt-3">Please fill in this form to create an account!</h5>
 
       <div class="row justify-content-md-center fw-bold"></div>
 
       <div>
         <fieldset class="form-group">
-          <label class="control-label my-4" for="fname">Enter Your Username</label>
+          <label class="control-label my-4" for="fname">Username</label>
           <div class="input-group">
             <div class="input-group-addon text-dark bg-light p-3">
               <i class="fa fa-user" aria-hidden="true"></i>
@@ -40,10 +81,10 @@
 
       <div>
         <fieldset class="form-group">
-          <label class="control-label my-4" for="useremail">Enter Email address</label>
+          <label class="control-label my-4" for="useremail">Email</label>
           <div class="input-group">
             <div class="input-group-addon text-dark bg-light p-3">
-              <i class="fa fa-user" aria-hidden="true"></i>
+              <i class="fa fa-envelope"aria-hidden="true"></i>
             </div>
             <input class="form-control" type="email" name="user-email"
             id="useremail" placeholder="Email Address" value="">
@@ -54,16 +95,22 @@
 
       <div>
         <fieldset class="form-group">
-        <label class="form-group" for="userphonenumber">Enter Phone number</label>
-        <input class="d-block w-100 shadow border border-light rounded-pill" type="tel" name="user-phonenumber"
-          id="userphonenumber" placeholder="Phone number" required>
+        <label class="control-label my-4" for="userphonenumber">Phone number</label>
+             <div class="input-group">
+            <div class="input-group-addon text-dark bg-light p-3">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+            </div>
+            <input class="form-control" type="tel" name="user-phonenumber"
+          id="userphonenumber" placeholder="Phone number" value="">
+          </div>
+          <div id="numbermsg" style="color:red"> </div>
       </fieldset>
       </div>
       
 
       <div>
         <fieldset class="form-group">
-          <label class="control-label my-4" for="pswd1">Enter Password</label>
+          <label class="control-label my-4" for="pswd1">Password</label>
           <div class="input-group">
             <div class="input-group-addon text-dark bg-light p-3">
               <i class="fa fa-lock" aria-hidden="true"></i>
@@ -80,7 +127,7 @@
 
       <div>
         <fieldset class="form-group">
-          <label class="control-label my-4" for=""></label>
+          <label class="control-label my-4" for="pswd2">Confirm Password</label>
           <div class="input-group">
             <div class="input-group-addon text-dark bg-light p-3">
               <i class="fa fa-lock" aria-hidden="true" id="toggle"></i>
@@ -99,11 +146,11 @@
       <fieldset class="form-field">
         <h5 class="py-3 fs-5 fw-bold">Gender</h5>
         <div class="d-flex mb-5">
-          <div class="ms-5">
+          <div class="ms-md-5">
             <input class="form-check-input" type="radio" name="usergender" id="femalegender">
             <label class="form-check-label" for="femalegender">Female</label>
           </div>
-          <div class="ms-5 me-5">
+          <div class="ms-4 ms-md-5 me-4 me-md-5">
             <input class="form-check-input" type="radio" name="usergender" id="malegender">
             <label class="form-check-label" for="malegender">Male</label>
           </div>
@@ -117,12 +164,12 @@
       <hr>
 
       <div class="form-group">
-        <label class="form-check-label"><input type="checkbox"> I accept the <a href="#">Terms of
+        <label class="form-check-label"><input class="pe-2" type="checkbox"> I accept the <a href="#">Terms of
             Use</a> &amp; <a href="#">Privacy Policy</a></label>
       </div>
 
       <button
-        class="btn btn-lg d-block w-50 mb-5 mt-5 mx-auto btn-danger text-light py-3 px-5 border border-none rounded-pill"
+        class="btn btn-lg d-block w-50 mb-5 mt-5 mx-auto btn-danger text-light py-3 px-3 border border-none rounded-pill"
         type="submit">Submit</button>
 
       </div>
@@ -130,6 +177,7 @@
 
   </section>
   <script src="/JS/index.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

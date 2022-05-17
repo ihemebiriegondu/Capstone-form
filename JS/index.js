@@ -145,11 +145,32 @@ if (isFormValid) {
 }
 });*/
 
+/*function myFunction() {
+  var x = document.getElementById("navbar");
+  if (x.className === "topnavbar") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnavbar";
+  }
+}
+*/
 
+
+var topnavbarDiv = document.getElementById("navbar"),
+    mediaButton = document.getElementById("mediaButton");
+
+mediaButton.onclick = function () {
+    
+    "use strict";
+    
+    topnavbarDiv.classList.toggle("show_list");
+    mediaButton.classList.toggle("active");
+    
+};
 
 
 var password = document.getElementById('pswd1');
-*/var password = document.getElementById('pswd2');*/
+/*var password = document.getElementById('pswd2');*/
 var togglePassword = document.getElementById('togglePassword');  
 
 showHidePassword = () => {
@@ -174,25 +195,32 @@ togglePassword.addEventListener('click', showHidePassword);
   var pw1 = document.getElementById("pswd1").value;  
   var pw2 = document.getElementById("pswd2").value;  
   var name1 = document.getElementById("fname").value;  
-  var togglePassword = document.getElementById('togglePassword');  
+  var email = document.getElementById("useremail").value;
     
-  //check empty first name field  
+  //check empty username field  
   if(name1 == "") {  
     document.getElementById("blankMsg").innerHTML = "Enter a Username";  
     return false;  
   }  
+  
+  //check empty email field
+  if(email ==""){
+    document.getElementById("emailmsg").innerHTML = "Enter an email address";
+    return false;
+  }
+  
+  //check correct email type
+   if(email !== "/^\S+@\S+$/g"){
+    document.getElementById("emailmsg").innerHTML =
+     "Enter a valid email address";
+    return false;
+  }
   
   //check empty password field  
   if(pw1 == "") {  
     document.getElementById("message1").innerHTML = "Enter a password";  
     return false;  
   }  
-  
-  //check empty confirm password field  
-  if(pw2 == "") {  
-    document.getElementById("message2").innerHTML = "Confirm your password";  
-    return false;  
-  }   
    
   //minimum password length validation  
   if(pw1.length < 8) {  
@@ -206,11 +234,16 @@ togglePassword.addEventListener('click', showHidePassword);
     return false;  
   }  
   
+    //check empty confirm password field  
+  if(pw2 == "") {  
+    document.getElementById("message2").innerHTML = "Confirm your password";  
+    return false;  
+  }   
+  
   if(pw1 != pw2) {  
     document.getElementById("message2").innerHTML = "**Passwords are not same";  
     return false;  
   } else {  
-    alert ("Your password created successfully");  
-    document.write("JavaScript form has been submitted successfully");  
+    document.write("Account created successfully");
   }  
 }  
