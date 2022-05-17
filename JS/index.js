@@ -73,6 +73,16 @@ function validateForm() {
     return false;
   }
 
+  if (isNaN(phone)){
+    document.getElementById("numbermsg").innerHTML = "**Enter numeric values only";
+    document.getElementById("numbermsg").style.backgroundColor = "rgb(248, 204, 204)";
+    document.getElementById("blankMsg").innerHTML = "";
+    document.getElementById("blankMsg").style.backgroundColor = "transparent";
+    document.getElementById("emailmsg").innerHTML = "";
+    document.getElementById("emailmsg").style.backgroundColor = "transparent"; 
+    return false;
+  }
+
   //check empty password field  
   if (pw1 == "") {
     document.getElementById("message1").innerHTML = "**Enter a password";
