@@ -35,7 +35,6 @@ function validateForm() {
   var emaildotposition = email.lastIndexOf(".");
   var phone = document.getElementById("userphonenumber").value;
   var gender = document.getElementById("gender").checked;
-  var gendergroup = document.getElementById("gendergroup");
   var policy = document.getElementById("policy").checked;
 
   //check empty username field  
@@ -194,7 +193,6 @@ function validateForm() {
   }
 
   if (!gender) {
-    document.getElementById("gendergroup").focus();
     document.getElementById("gendermsg").innerHTML = "**Pick a gender";
     document.getElementById("gendermsg").style.backgroundColor = "rgb(248, 204, 204)";
     document.getElementById("blankMsg").innerHTML = "";
